@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wechat: MyString
+  location: MyString
+  tel: MyString
+
+two:
+  wechat: MyString
+  location: MyString
+  tel: MyString
