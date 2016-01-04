@@ -34,28 +34,32 @@ ActiveRecord::Schema.define(version: 20160103081638) do
   end
 
   create_table "orderdetails", force: :cascade do |t|
+    t.integer  "order_id",   limit: 4
+    t.integer  "product_id", limit: 4
     t.integer  "num",        limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "send_id",    limit: 4
     t.integer  "status",     limit: 4
-    t.float    "freight",    limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "freight",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",             limit: 255
-    t.float    "price",            limit: 24
-    t.string   "img_file_name",    limit: 255
-    t.string   "img_content_type", limit: 255
-    t.string   "img_file_size",    limit: 255
-    t.integer  "status",           limit: 4
-    t.integer  "num",              limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "seller_id",  limit: 4
+    t.integer  "unit_id",    limit: 4
+    t.string   "name",       limit: 255
+    t.float    "price",      limit: 24
+    t.string   "avatar",     limit: 255
+    t.integer  "status",     limit: 4
+    t.integer  "num",        limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "sellers", force: :cascade do |t|

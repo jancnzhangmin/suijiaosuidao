@@ -1,11 +1,10 @@
 class LoginsController < ApplicationController
 
   def create
-
-    admin = Admin.find_by(name:params[:login][:name])
+    admin = Admin.find_by(login:params[:login][:login])
     if admin && admin.authenticate(params[:login][:password])
       session[:admin_id]= admin.id
-      session[:admin_name]=admin.name
+      session[:admin_name]=admin.login
       redirect_to admins_path
     else
       @check="err"

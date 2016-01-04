@@ -1,0 +1,25 @@
+<%= form_for :admin , url: admins_path do |f| %>
+
+    <h2>新建管理员</h2>
+    <div class="field">
+      <%= f.label :用户名 %><br>
+      <%= f.text_field :username %>
+    </div>
+    <div class="field">
+      <%= f.label :登录名 %><br>
+      <%= f.text_field :login %>
+    </div>
+    <div class="field">
+      <%= f.label :密码  %><br>
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :确认密码 %><br>
+      <%= f.text_field :password_confirmation %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+
+<%end%>

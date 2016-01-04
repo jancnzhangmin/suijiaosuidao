@@ -1,8 +1,10 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
+      t.integer :user_id
+      t.integer :send_id
       t.integer :status
-      t.float :freight
+      t.string :freight
 
       t.timestamps null: false
     end

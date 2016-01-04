@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>订单号:</strong>
+  <%= @orderdetail.order_id %>
+</p>
+<p>
+  <strong>产品号:</strong>
+  <%= @orderdetail.product_id %>
+</p>
+<p>
+  <strong>数量:</strong>
+  <%= @orderdetail.num %>
+</p>
+
+
+<%= link_to 'Back', orderdetails_path %>

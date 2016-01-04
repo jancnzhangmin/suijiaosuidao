@@ -1,0 +1,11 @@
+<%= form_for :cla , url: clas_url do |f| %>
+
+    <h2>新建类型</h2>
+    <div class="field">
+      <%= f.label :类型名称 %><br>
+      <%= f.text_field :claname %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<%end%>

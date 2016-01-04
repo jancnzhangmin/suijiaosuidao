@@ -935,11 +935,72 @@
         email: "Please enter a valid email address"
       }
     });
-    /*
-    # =============================================================================
-    #   Drag and drop files
-    # =============================================================================
-    */
+
+
+      /*
+       # =============================================================================
+       #   admin create validate
+       # =============================================================================
+       */
+
+      $(".new_admin").validate({
+          rules: {
+              'admin[login]': {
+                  required: true,
+                  minlength: 5,
+                  remote: {
+                      data: {
+                          user_name: function(){
+                              return $('#admin_login').val();
+                          }
+                      },
+                      url: "/admins/chkrpt",
+                      type: "get"
+
+
+                  }
+
+              },
+
+              'admin[password]': {
+                  required: true,
+                  minlength: 5
+              },
+              'admin[password_confirmation]': {
+                  required: true,
+                  minlength: 5,
+                  equalTo: "#admin_password"
+              }
+          },
+          messages: {
+              'admin[name]': {
+                  required: "账号不能为空！",
+                  minlength: "账号名不能少于5个字符",
+                  remote: "该账户已存在！"
+              },
+
+              'admin[password]': {
+                  required: "密码不能为空！",
+                  minlength: "密码长度不能少于5个字符"
+              },
+              'admin[password_confirmation]': {
+                  required: "确认密码不能为空！",
+                  minlength: "确认密码不能少于5个字符",
+                  equalTo: "两次密码输入不一致"
+              }
+          }
+      });
+
+
+
+
+
+
+      /*
+      # =============================================================================
+      #   Drag and drop files
+      # =============================================================================
+      */
 
     $(".single-file-drop").each(function() {
       var $dropbox;

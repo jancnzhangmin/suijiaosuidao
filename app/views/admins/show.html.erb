@@ -1,2 +1,17 @@
-<h1>Admins#show</h1>
-<p>Find me in app/views/admins/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>用户名:</strong>
+  <%= @admin.username %>
+</p>
+<p>
+  <strong>登录名:</strong>
+  <%= @admin.login %>
+</p>
+<p>
+  <strong>密码:</strong>
+  *******
+</p>
+
+
+<%= link_to 'Back', admins_path %>

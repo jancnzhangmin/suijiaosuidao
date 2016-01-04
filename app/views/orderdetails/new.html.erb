@@ -1,0 +1,21 @@
+<%= form_for :orderdetail , url: orderdetails_path do |f| %>
+
+    <h2>新建订单明细</h2>
+    <div class="field">
+      <%= f.label :订单号 %><br>
+      <%= f.text_field :order_id %>
+    </div>
+    <div class="field">
+      <%= f.label :产品号 %><br>
+      <%= f.text_field :product_id %>
+    </div>
+    <div class="field">
+      <%= f.label :数量  %><br>
+      <%= f.text_field :num %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+
+<%end%>

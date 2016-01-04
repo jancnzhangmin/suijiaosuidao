@@ -1,0 +1,11 @@
+<%= form_for :kilometre , url: kilometres_url do |f| %>
+
+    <h2>新建类型</h2>
+    <div class="field">
+      <%= f.label :价格 %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<%end%>

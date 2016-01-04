@@ -1,6 +1,35 @@
 Rails.application.routes.draw do
 
-  resources :admins
+
+
+  get 'orders/index'
+
+  get 'orders/show'
+
+  get 'orders/new'
+
+  resources :admins do
+    get 'chkrpt', on: :collection
+  end
+
+  resources :clas
+
+  resources :kilometres
+
+  resources :orderdetails
+
+  resources :orders
+
+  resources :products
+
+  resources :sellers
+
+  resources :sends
+
+  resources :units
+
+  resources :users
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

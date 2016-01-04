@@ -1,4 +1,4 @@
 class Seller < ActiveRecord::Base
-  belongs_to :Cla
+  belongs_to :cla
   has_many :procucts
 end
