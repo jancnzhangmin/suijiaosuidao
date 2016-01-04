@@ -1,15 +1,21 @@
-
 <!-- Login Screen -->
 <div class="login-wrapper">
   <div class="login-container">
     <a href="index.html"><%=image_tag("login-login@2x.png")%></a>
-    <form action="http://sharpandnimble.com/se7en/demo/index.html">
+    <!--<form action="http://sharpandnimble.com/se7en/demo/index.html">-->
+    <%= form_for(:login, url: logins_path) do |f| %>
       <div class="form-group">
-        <input class="form-control" placeholder="Username or Email" type="text">
+        <!-- <input class="form-control" placeholder="Username or Email" type="text">-->
+
+        <%= f.text_field :name, class:"form-control", placeholder:"用户名" %>
       </div>
       <div class="form-group">
-        <input class="form-control" placeholder="Password" type="text"><input type="submit" value="&#xf054;">
+       <!-- <input class="form-control" placeholder="Password" type="text"><input type="submit" value="&#xf054;">-->
+
+        <%= f.password_field :password,class:"form-control", placeholder:"密码" %><%= f.submit(value="")  %>
       </div>
+
+        <%end%>
       <div class="form-options clearfix">
         <a class="pull-right" href="#">Forgot password?</a>
         <div class="text-left">
