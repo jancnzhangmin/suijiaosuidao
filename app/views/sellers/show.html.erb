@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>商家登录名:</strong>
+  <%= @seller.login %>
+</p>
+<p>
+  <strong>商家密码:</strong>
+  ******
+</p>
+<p>
+  <strong>商家名称:</strong>
+  <%= @seller.name %>
+</p>
+<p>
+  <strong>商家地址:</strong>
+  <%= @seller.address %>
+</p>
+<p>
+  <strong>商家位置:</strong>
+  <%= @seller.location %>
+</p>
+<p>
+  <strong>商品概要:</strong>
+  <%= @seller.summary %>
+</p>
+
+
+<%= link_to 'Back', sellers_path %>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>用户ID:</strong>
+  <%= @indent.user_id %>
+</p>
+<p>
+  <strong>派送员ID:</strong>
+  <%= @indent.send_id %>
+</p>
+<p>
+  <strong>状态:</strong>
+  <%= @indent.status%>
+</p>
+
+<p>
+  <strong>运费:</strong>
+  <%= @indent.freight%>
+</p>
+
+
+<%= link_to 'Back', indents_path %>

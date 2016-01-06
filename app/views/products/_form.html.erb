@@ -1,0 +1,36 @@
+<%= form_for :product , url: products_path do |f| %>
+
+    <h2>新建产品</h2>
+    <div class="field">
+      <%= f.label :商家ID %><br>
+      <%= f.text_field :seller_id %>
+    </div>
+    <div class="field">
+      <%= f.label :单位ID %><br>
+      <%= f.text_field :unit_id %>
+    </div>
+    <div class="field">
+      <%= f.label :产品名称  %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :价格 %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :图片 %><br>
+      <%= f.text_field :avatar %>
+    </div>
+    <div class="field">
+      <%= f.label :状态 %><br>
+      <%= f.text_field :status %>
+    </div>
+    <div class="field">
+      <%= f.label :数量 %><br>
+      <%= f.text_field :num %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    
+<%end%>

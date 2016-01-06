@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>商家ID:</strong>
+  <%= @product.seller_id %>
+</p>
+<p>
+  <strong>单位ID:</strong>
+  <%= @product.unit_id %>
+</p>
+<p>
+  <strong>商品名称:</strong>
+  <%= @product.name %>
+</p>
+<p>
+  <strong>商品价格:</strong>
+  <%= @product.price %>
+</p>
+<p>
+  <strong>商品图片:</strong>
+  <%= @product.avatar %>
+</p>
+<p>
+  <strong>商品状态:</strong>
+  <%= @product.status %>
+</p>
+<p>
+  <strong>商品数量:</strong>
+  <%= @product.num %>
+</p>
+
+<%= link_to 'Back', products_path %>

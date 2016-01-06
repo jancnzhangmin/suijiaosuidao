@@ -1,0 +1,62 @@
+<div class="wrap">
+  <div id="main">
+    <div class="fullwidthbanner-container">
+      <div class="fullwidthbanner rslider">
+        <ul>
+          <li data-delay="6000" data-masterspeed="300" data-transition="fade">
+            <div class="slotholder"><%=image_tag('banner01.png','data-fullwidthcentering'=>'on',alt:'')%></div>
+          </li>
+          <li data-delay="6000" data-masterspeed="300" data-transition="fade">
+            <div class="slotholder"><%=image_tag('banner02.png','data-fullwidthcentering'=>'on',alt:'')%></div>
+          </li>
+          <% @advertisements.each do |advertisement| %>
+              <li data-delay="6000" data-masterspeed="300" data-transition="fade">
+                <div class="slotholder"><%=image_tag('banner01.png','data-fullwidthcentering'=>'on',alt:'')%><%=advertisement.image.html_safe%></div>
+              </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    <div class="slogan">
+      <div class="container">
+        <div class="row">
+          <div class="slogan-content">
+            <div class="col-xs-12">
+              <h2 class="slogan-title"><%=@clas.name%></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% @sellers.each do |seller| %>
+        <a href="/sides/<%=seller.id%>" data-no-turbolink="true">
+          <div class="slogan">
+            <div class="container">
+              <div class="row">
+                <div class="slogan-content">
+                  <div class="col-xs-4">
+                    <div class="team-member">
+                      <div class="team-member-holder">
+                        <div class="team-member-image">
+                          <%=seller.logo.html_safe%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-4">
+                    <h4><%=seller.name%></h4>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="get-started">
+                      <i class="icon-angle-right icon-4x"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+    <%end%>
+  </div>
+</div>
+

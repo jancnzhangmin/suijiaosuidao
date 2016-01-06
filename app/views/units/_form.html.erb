@@ -1,0 +1,10 @@
+<%= form_for :unit , url: units_path do |f| %>
+    <h2>创建单位</h2>
+    <div class="field">
+      <%= f.label :单位名称  %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<%end%>

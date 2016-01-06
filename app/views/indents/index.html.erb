@@ -1,0 +1,30 @@
+<h1>订单明细</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>用户ID</th>
+    <th>派送员ID</th>
+    <th>状态</th>
+    <th>运费</th>
+    <th>操作</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @indents.each do |indent| %>
+      <tr>
+        <td><%= indent.user_id %></td>
+        <td><%= indent.send_id %></td>
+        <td><%= indent.status %></td>
+        <td><%= indent.freight %></td>
+        <td><%= link_to 'Show', indent %></td>
+        <td><%= link_to 'Destroy', indent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to '添加订单', new_indent_path %>

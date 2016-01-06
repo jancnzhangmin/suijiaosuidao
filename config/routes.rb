@@ -2,15 +2,23 @@ Rails.application.routes.draw do
 
 
 
-  get 'orders/index'
 
-  get 'orders/show'
+  get 'sides/index'
 
-  get 'orders/new'
+  get 'sides/show'
+
+  get 'sides/new'
+
+  get 'ctsinits/index'
+
+  resources :sides
 
   resources :admins do
     get 'chkrpt', on: :collection
   end
+
+
+  resources :indents
 
   resources :clas
 

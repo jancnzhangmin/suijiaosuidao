@@ -1,0 +1,22 @@
+<%= form_for :send , url: sends_path do |f| %>
+    <h2>派送员创建</h2>
+    <div class="field">
+      <%= f.label :派送员姓名  %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :登录名 %><br>
+      <%= f.text_field :login %>
+    </div>
+    <div class="field">
+      <%= f.label :密码  %><br>
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :确认密码 %><br>
+      <%= f.text_field :password_confirmation %>
+    </div>
+        <div class="actions">
+      <%= f.submit %>
+    </div>
+<%end%>

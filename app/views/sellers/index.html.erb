@@ -1,0 +1,34 @@
+<h1>商家列表</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>登录名</th>
+    <th>密码</th>
+    <th>商家名称</th>
+    <th>商家地址</th>
+    <th>商家位置</th>
+    <th>商家概况</th>
+    <th>操作</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= seller.login %></td>
+        <td>********</td>
+        <td><%= seller.name %></td>
+        <td><%= seller.address %></td>
+        <td><%= seller.location %></td>
+        <td><%= seller.summary %></td>
+        <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
+        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to '添加产品', new_seller_path %>

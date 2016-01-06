@@ -1,0 +1,32 @@
+<%= form_for :seller , url: sellers_path do |f| %>
+
+    <h2>新建产品</h2>
+    <div class="field">
+      <%= f.label :登录名 %><br>
+      <%= f.text_field :login %>
+    </div>
+    <div class="field">
+      <%= f.label :密码 %><br>
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :确认密码  %><br>
+      <%= f.text_field :password_confirmation %>
+    </div>
+    <div class="field">
+      <%= f.label :地址 %><br>
+      <%= f.text_field :address %>
+    </div>
+    <div class="field">
+      <%= f.label :位置 %><br>
+      <%= f.text_field :location %>
+    </div>
+    <div class="field">
+      <%= f.label :概要 %><br>
+      <%= f.text_field :status %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<%end%>

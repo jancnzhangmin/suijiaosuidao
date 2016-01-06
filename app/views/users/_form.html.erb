@@ -1,0 +1,18 @@
+<%= form_for :user , url: users_path do |f| %>
+    <h2>添加用户</h2>
+    <div class="field">
+      <%= f.label :用户微信号  %><br>
+      <%= f.text_field :wechat %>
+    </div>
+    <div class="field">
+      <%= f.label :位置 %><br>
+      <%= f.text_field :location %>
+    </div>
+    <div class="field">
+      <%= f.label :电话  %><br>
+      <%= f.text_field :tel %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<%end%>
