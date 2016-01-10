@@ -1,6 +1,7 @@
 class CreateSellers < ActiveRecord::Migration
   def change
     create_table :sellers do |t|
+      t.integer :cla_id
       t.string :login
       t.string :password_digest
       t.string :name

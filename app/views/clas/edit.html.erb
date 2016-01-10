@@ -1,1 +1,9 @@
-<%=render 'form'%>
+
+<%=render 'head' %>
+
+<div class="container fluid-height clearfix">
+  <%= render 'form' %>
+
+  <%= link_to 'Show', @cla %> |
+  <%= link_to 'Back',clas_path %>
+</div>

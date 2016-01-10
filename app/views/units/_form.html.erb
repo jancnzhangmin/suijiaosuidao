@@ -1,10 +1,19 @@
 <%= form_for :unit , url: units_path do |f| %>
-    <h2>创建单位</h2>
-    <div class="field">
-      <%= f.label :单位名称  %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+    <table class="col-lg-8">
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :名称 %></td>
+          <% if @unit.name %>
+              <td><%= f.text_field :name, class:"form-control", readonly:true %></td>
+          <% else %>
+              <td><%= f.text_field :name, class:"form-control" %></td>
+          <% end %>
+        </div>
+      </tr>
+      <tr>
+        <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+          <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+        </div>
+      </tr>
+    </table>
 <%end%>

@@ -22,6 +22,12 @@ class UnitsController < ApplicationController
   end
 
   def edit
+    params.permit!
+    if @unit.update(params[:unit])
+      redirect_to units_url
+    else
+      render :edit
+    end
 
   end
 

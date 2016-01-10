@@ -1,11 +1,18 @@
 <%= form_for :cla , url: clas_url do |f| %>
-
-    <h2>新建类型</h2>
-    <div class="field">
-      <%= f.label :类型名称 %><br>
-      <%= f.text_field :claname %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+    <table class="col-lg-8">
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:100px;text-align: right;padding: 10px;"><%= f.label :类型名称 %></td>
+          <td><%= f.text_field :claname, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+          <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+        </div>
+      </tr>
+    </table>
 <%end%>
+
+
+

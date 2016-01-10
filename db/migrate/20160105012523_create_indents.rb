@@ -5,6 +5,7 @@ class CreateIndents < ActiveRecord::Migration
       t.integer :send_id
       t.string :status
       t.float :freight
+      t.text :content
 
       t.timestamps null: false
     end

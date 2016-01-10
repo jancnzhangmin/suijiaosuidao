@@ -1,0 +1,84 @@
+
+
+<!-- Navigation -->
+<div class="navbar navbar-fixed-top scroll-hide" xmlns="http://www.w3.org/1999/html">
+  <div class="container-fluid top-bar">
+    <div class="pull-right">
+      <ul class="nav navbar-nav pull-right">
+        <li style="margin-top: 9px;">
+          <i class="icon-user icon-2x" style="color: #007aff"></i>
+        </li>
+        <li class="dropdown user hidden-xs" ><a data-toggle="dropdown" class="dropdown-toggle" href="#">
+          <%= session[:admin_name]%><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/logins/new" data-no-turbolink>
+              <i class="icon-signout">退出</i></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <button class="navbar-toggle"></button><a  href="#"><h3 class="heading" style="padding: 6px;">suijiaosuidao</h3></a>
+  </div>
+  <div class="container-fluid main-nav clearfix">
+    <div class="nav-collapse">
+
+      <ul class="nav">
+        <!--       <li>
+                 <a class="current" href="index-2.html"><span aria-hidden="true"><i class="icon-gears"></i>System</span></a>
+               </li>
+               -->
+        <li class="dropdown"><a data-toggle="dropdown" href="#">
+
+        <span aria-hidden="true"class="icon-gears"></span>系统<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+         <li>
+          <%= link_to "管理员设置", admins_path %>
+        </li>
+        </ul>
+        </li>
+
+        <li><a href="/users">
+          <span aria-hidden="true" class="icon-male"></span>用户</a>
+        </li>
+
+        <li><a href="/clas">
+          <span aria-hidden="true" class="icon-sitemap"></span>商家类别设置</a>
+        </li>
+        <li><a href="/products">
+          <span aria-hidden="true" class="icon-th-list"></span>产品</a>
+        </li>
+        <li><a href="/sellers">
+          <span aria-hidden="true" class="icon-user"></span>商家</a>
+        </li>
+        <li class="dropdown"><a data-toggle="dropdown" href="#">
+          <span aria-hidden="true"  class="icon-calendar"></span>订单<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to "订单管理", indents_path %>
+            </li>
+
+          </ul>
+        </li>
+        <li><a href="/units">
+          <span aria-hidden="true" class="icon-cog"></span>单位</a>
+        </li>
+        <li><a href="/couriers">
+          <span aria-hidden="true" class="icon-female"></span>配送员</a>
+        </li>
+
+
+
+
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- End Navigation -->
+<div class="container ">
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %>
+        <button class="close" data-dismiss="alert" type="button">&times;</button>
+      </div>
+  <% end %>
+</div>

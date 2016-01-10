@@ -1,32 +1,52 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>商家ID:</strong>
-  <%= @product.seller_id %>
-</p>
-<p>
-  <strong>单位ID:</strong>
-  <%= @product.unit_id %>
-</p>
-<p>
-  <strong>商品名称:</strong>
-  <%= @product.name %>
-</p>
-<p>
-  <strong>商品价格:</strong>
-  <%= @product.price %>
-</p>
-<p>
-  <strong>商品图片:</strong>
-  <%= @product.avatar %>
-</p>
-<p>
-  <strong>商品状态:</strong>
-  <%= @product.status %>
-</p>
-<p>
-  <strong>商品数量:</strong>
-  <%= @product.num %>
-</p>
 
-<%= link_to 'Back', products_path %>
+
+<%= render 'head'%>
+<div class="container fluid-height clearfix">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="heading"><i class="icon-bullhorn"></i>&nbsp; 产品信息</h2>
+      <div class="widget-container fluid-height clearfix" style="padding: 10px;">
+        <div class="col-lg-12">
+          <p>
+            <span class="col-sm-2" style="text-align: right;">商家名:</span>
+            <% @seller=Seller.find_by_id(@product.seller_id)%>
+            <%=@seller.name   %>
+
+          </p>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">单位名:</span>
+            <% @unit=Unit.find_by_id(@product.unit_id)%>
+            <%=  @unit.name %>
+
+          </p>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">商品名称:</span>
+            <%=  @product.name %>
+          </p>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">商品图片:</span>
+            <%=  @product.avatar.url %>
+          </p>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">商品价格:</span>
+            <%=  @product.price %>元
+          </p>
+
+          <p>
+            <span class="col-sm-2" style="text-align: right;">数量:</span>
+            <%=  @product.num %>
+          </p>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">状态:</span>
+            <%if @product.status==1%>
+                上架
+            <%else%>
+                下架
+            <%end%>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

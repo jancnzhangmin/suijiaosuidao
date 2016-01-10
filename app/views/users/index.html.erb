@@ -1,28 +1,32 @@
-<h1>用户列表</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>用户微信号</th>
-    <th>位置</th>
-    <th>电话</th>
-    <th>操作</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @users.each do |user| %>
+<%=render 'head' %>
+<div class="container fluid-height clearfix">
+  <h2 class="heading" style="margin-top: 15px;">用户设置</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= user.wechat %></td>
-        <td><%= user.location %></td>
-        <td><%= user.tel %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th >用户微信号</th>
+        <th >位置</th>
+        <th >电话</th>
+        <th >操作</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
-<br>
+      </thead>
+      <% @users.each do |user| %>
+          <tr>
+            <td width="30px"><i class="heading icon-user"></i></td>
+            <td><%= user.wechat %></td>
+            <td><%= user.location %></td>
+            <td><%= user.tel %></td>
+            <td width="100px" align="center"><%= link_to "", user,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+              <%= link_to '', user, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
+  </div>
+</div>
 
-<%= link_to '添加用户', new_user_path %>
+

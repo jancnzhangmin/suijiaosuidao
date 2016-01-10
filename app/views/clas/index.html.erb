@@ -1,25 +1,28 @@
-<h1>分类展示</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>类型名</th>
-    <th>操作</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @clas.each do |cla| %>
+
+<%=render 'head' %>
+<div class="container fluid-height clearfix">
+  <h2 class="heading" style="margin-top: 15px;">商家分类设置</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= cla.claname %></td>
-        <td><%= link_to 'Edit', edit_cla_path(cla) %></td>
-        <td><%= link_to 'Destroy', cla, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th>类型名</th>
+        <th>操作</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
-<br>
-
-<%= link_to '添加分类', new_cla_path %>
-
+      </thead>
+      <% @clas.each do |cla| %>
+          <tr>
+            <td width="30px"><i class="icon-sitemap"></i></td>
+            <td><%= cla.claname %></td>
+            <td width="100px" align="center"><%= link_to "", edit_cla_path(cla),  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+              <%= link_to '', cla, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
+    <%= link_to ' 新建产品分类', new_cla_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
+  </div>
+</div>

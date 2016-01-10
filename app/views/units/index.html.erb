@@ -1,24 +1,38 @@
-<h1>单位列表</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>单位名称</th>
-    <th>操作</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @units.each do |unit| %>
+
+<%=render 'head' %>
+
+<div class="container fluid-height clearfix">
+
+  <h2 class="heading" style="margin-top: 15px;">产品单位设置</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= unit.name %></td>
-        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
-        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th>单位名称</th>
+        <th>操作</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
-<br>
+      </thead>
 
-<%= link_to '添加产品', new_unit_path %>
+
+      <% @units.each do |unit| %>
+          <tr>
+            <td width="30px"><i class="icon-user"></i></td>
+            <td><%= unit.name %></td>
+            <td width="100px" align="center"><%= link_to "", unit,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+              <%= link_to '', unit, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+          </tr>
+      <% end %>
+
+    </table>
+
+    <br>
+
+
+
+    <%= link_to ' 新建单位', new_unit_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
+  </div>
+</div>
+

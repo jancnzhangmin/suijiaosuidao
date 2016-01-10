@@ -70,9 +70,11 @@ ActiveRecord::Schema.define(version: 20160110020152) do
   end
 
   create_table "sellers", force: :cascade do |t|
+    t.integer  "cla_id",          limit: 4
     t.string   "login",           limit: 255
     t.string   "password_digest", limit: 255
     t.string   "name",            limit: 255
+    t.string   "logo",            limit: 255
     t.string   "address",         limit: 255
     t.string   "location",        limit: 255
     t.string   "summary",         limit: 255

@@ -1,36 +1,120 @@
-<%= form_for :product , url: products_path do |f| %>
 
-    <h2>新建产品</h2>
-    <div class="field">
-      <%= f.label :商家ID %><br>
-      <%= f.text_field :seller_id %>
-    </div>
-    <div class="field">
-      <%= f.label :单位ID %><br>
-      <%= f.text_field :unit_id %>
-    </div>
-    <div class="field">
-      <%= f.label :产品名称  %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :价格 %><br>
-      <%= f.text_field :price %>
-    </div>
-    <div class="field">
-      <%= f.label :图片 %><br>
-      <%= f.text_field :avatar %>
-    </div>
-    <div class="field">
-      <%= f.label :状态 %><br>
-      <%= f.text_field :status %>
-    </div>
-    <div class="field">
-      <%= f.label :数量 %><br>
-      <%= f.text_field :num %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-    
-<%end%>
+<script type="text/javascript" language="JavaScript">
+    function cardtypeselect(){
+        document.getElementById("product_seller_id").value=document.getElementById("sellerid").value;
+    }
+    function cardtypeselect1(){
+        document.getElementById("product_unit_id").value=document.getElementById("unitid").value;
+    }
+    function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.'+imgid)
+                        .attr('src', e.target.result)
+                //.width(300)
+                //.height(200);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+
+</script>
+
+
+    <%= form_for :product , url: products_path do |f| %>
+
+
+      <table class="col-lg-9">
+
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :商家 %></td>
+            <td> <%= f.hidden_field :seller_id,value:1%>
+              <% @sellers = Seller.all%>
+              <select id="sellerid" class="form-control" type="text" onchange="cardtypeselect()">
+                <%= @sellers.each do |f| %>
+                    <option value=<%=f.id%>><%=f.name%></option>
+                <%end%>
+              </select></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :单位 %></td>
+            <td> <%= f.hidden_field :unit_id,value:1%>
+              <% @units = Unit.all%>
+              <select id="unitid" class="form-control" type="text" onchange="cardtypeselect1()">
+                <%= @units.each do |f| %>
+                    <option value=<%=f.id%>><%=f.name%></option>
+                <%end%>
+              </select></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :产品名称 %></td>
+            <td><%= f.text_field :name, class:"form-control" %></td>
+          </div>
+        </tr>
+
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :价格 %></td>
+            <td><%= f.text_field :price, class:"form-control" %></td>
+          </div>
+        </tr>
+        <tr>
+            <div class="form-group">
+              <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :图片 %></td>
+              <td ><%= f.file_field :avatar ,:onchange => "readURL(this,'img1')" %>
+              <%if !@product.avatar %>
+                   <img style="margin-left: 200px" class="img1" width="200px" height="150px"  src=<%= @product.avatar.url%> /></td>
+              <%else%>
+                   <img style="margin-left: 200px" class="img1" width="200px" height="150px"  src=<%=image_path('noimage.png')%> /></td>
+              <%end%>
+            </div>
+
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :数量 %></td>
+            <td><%= f.text_field :num, class:"form-control" %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :状态 %></td>
+            <td >
+              <div style="display: none;">
+                <%= f.number_field :status, value:1, class:"form-control" %>
+              </div>
+
+              <div class="toggle-switch text-toggle-switch" data-off-label="下架" data-on="primary" data-on-label="上架">
+                <% if @product.status == 0 %>
+                    <input id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+                <% else %>
+                    <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+                <% end %>
+              </div>
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+            <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+          </div>
+        </tr>
+      </table>
+
+<% end %>
+
