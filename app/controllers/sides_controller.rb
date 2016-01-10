@@ -3,7 +3,7 @@ class SidesController < ApplicationController
     @advertisements = Advertisement.all
     @clas = Cla.all
     @indent = Indent.new
-    @sellers = @sidecla.sellers
+
   end
 
   def show

@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
 
-
+  get 'advertisements/index'
 
 
   get 'sides/index'
 
-  get 'sides/show'
-
-  get 'sides/new'
 
   get 'ctsinits/index'
 
   resources :sides
-
+  resources :advertisements
   resources :admins do
     get 'chkrpt', on: :collection
   end
