@@ -29,47 +29,22 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="fluid-height">
+              <%= form_tag destroy_multiple_admins_path, method: :delete do %>
               <% @products.each do |product| %>
               <div class="col-md-12 padded widget-container fluid-height" style="margin-top:-18px;">
                 <div style="padding:0 10px 0 0;">
-                  <label class="checkbox-inline"><input type="checkbox"><span></span><%=product.name%></label><p class="pull-right" style="margin-top:8px;">$<%=product.price.to_f%>0</p>
+                  <label class="checkbox-inline"><%= check_box_tag 'products[]',product.id%><span></span><%=product.name%></label><p class="pull-right" style="margin-top:8px;">$<%=product.price.to_f%>0</p>
                 </div>
               </div>
                   <%end%>
-              <div class="col-md-12 padded widget-container fluid-height" style="margin-top:-18px;">
-                <div style="padding:0 10px 0 0;">
-                  <label class="checkbox-inline"><input type="checkbox"><span></span>米线米线</label><p class="pull-right" style="margin-top:8px;">$10.00</p>
-                </div>
-              </div>
-
-              <div class="col-md-12 padded widget-container fluid-height" style="margin-top:-18px;">
-                <div style="padding:0 10px 0 0;">
-                  <label class="checkbox-inline"><input type="checkbox"><span></span>米线米线</label><p class="pull-right" style="margin-top:8px;">$10.00</p>
-                </div>
-              </div>
-
-              <div class="col-md-12 padded widget-container fluid-height" style="margin-top:-18px;">
-                <div style="padding:0 10px 0 0;">
-                  <label class="checkbox-inline"><input type="checkbox"><span></span>米线米线</label><p class="pull-right" style="margin-top:8px;">$10.00</p>
-                </div>
-              </div>
-
-              <div class="col-md-12 padded widget-container fluid-height" style="margin-top:-18px;">
-                <div style="padding:0 10px 0 0;">
-                  <label class="checkbox-inline"><input type="checkbox"><span></span>米线米线</label><p class="pull-right" style="margin-top:8px;">$10.00</p>
-                </div>
-              </div>
-
-
             </div>
           </div>
         </div>
 
         <div class="col-md-12 padded widget-container fluid-height navbar-fixed-bottom text-center" style="margin-bottom:0px;padding-top:5px;padding-bottom:0px;">
-          <button class="btn btn-lg btn-block btn-primary" style="margin-bottom:5px;">结算</button>
-
+          <%= submit_tag "订单预览" ,class:"btn btn-lg btn-block btn-primary" ,style:"margin-bottom:5px;"%>
         </div>
-
+<%end%>
 
       </div>
 

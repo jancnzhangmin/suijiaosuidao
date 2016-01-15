@@ -1,13 +1,11 @@
-<%= form_for :unit , url: units_path do |f| %>
+<%= form_for(@unit) do |f|   %>
     <table class="col-lg-8">
       <tr>
         <div class="form-group">
           <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :名称 %></td>
-          <% if @unit.name %>
-              <td><%= f.text_field :name, class:"form-control", readonly:true %></td>
-          <% else %>
+
               <td><%= f.text_field :name, class:"form-control" %></td>
-          <% end %>
+
         </div>
       </tr>
       <tr>

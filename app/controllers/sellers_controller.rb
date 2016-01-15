@@ -3,6 +3,7 @@ class SellersController < ApplicationController
 
   def index
     @sellers = Seller.all
+    @clas = Cla.all
   end
 
   def show
@@ -30,8 +31,9 @@ class SellersController < ApplicationController
   end
 
   def update
+    params.permit!
     if @seller.update(params[:seller])
-      render @seller
+      redirect_to @seller
     else
       render :edit
     end

@@ -1,30 +1,45 @@
-<h1>订单明细</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>用户ID</th>
-    <th>派送员ID</th>
-    <th>状态</th>
-    <th>运费</th>
-    <th>操作</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @indents.each do |indent| %>
+
+<%=render 'head' %>
+<div class="container fluid-height clearfix">
+  <h2 class="heading" style="margin-top: 15px;">订单管理</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= indent.user_id %></td>
-        <td><%= indent.send_id %></td>
-        <td><%= indent.status %></td>
-        <td><%= indent.freight %></td>
-        <td><%= link_to 'Show', indent %></td>
-        <td><%= link_to 'Destroy', indent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th>用户名</th>
+        <th>派送员名</th>
+        <th>状态</th>
+        <th>运费</th>
+        <th>操作</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
-<br>
+      </thead>
+      <% @indents.each do |indent| %>
+          <tr>
+            <td width="30px"><i class="icon-user"></i></td>
+            <% @user=@users.find_by_id(indent.user_id) rescue nil %>
+            <% if @user %>
+                <td class="hidden-xs"><%= @user.wechat %></td>
+            <% else %>
+                <td class="hidden-xs">&nbsp;</td>
+            <% end %>
+            <% @send=@sends.find_by_id(indent.send_id) rescue nil %>
+            <% if @send %>
+                <td class="hidden-xs"><%= @send.name %></td>
+            <% else %>
+                <td class="hidden-xs">&nbsp;</td>
+            <% end %>
+            <td><%= indent.status %></td>
+            <td><%= indent.freight %></td>
+            <td width="100px" align="center"><%= link_to "", indent,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+              <%= link_to '', indent, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
 
-<%= link_to '添加订单', new_indent_path %>
+  </div>
+</div>
+

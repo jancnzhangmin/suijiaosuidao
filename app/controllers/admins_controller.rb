@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,16 +10,7 @@ class AdminsController < ApplicationController
 
   end
 
-  def create
-    params.permit!
-    @admin = Admin.new(params[:admin])
-    if @admin.save
-    redirect_to @admin
-    else
-      render :new
-      end
 
-  end
 
   def new
     @admin = Admin.new
@@ -29,9 +21,22 @@ class AdminsController < ApplicationController
 
   end
 
+
+  def create
+    params.permit!
+    @admin = Admin.new(params[:admin])
+    if @admin.save
+      redirect_to @admin
+    else
+      render :new
+    end
+  end
+
+
   def update
+    params.permit!
     if @admin.update(params[:admin])
-      render @admin
+      redirect_to @admin
     else
       render :edit
     end
@@ -64,7 +69,9 @@ class AdminsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_admin
+
     @admin = Admin.find(params[:id])
+
   end
 
 end

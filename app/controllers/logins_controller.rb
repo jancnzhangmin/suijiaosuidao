@@ -1,5 +1,10 @@
 class LoginsController < ApplicationController
 
+  def new
+
+  end
+
+
   def create
     admin = Admin.find_by(login:params[:login][:login])
     if admin && admin.authenticate(params[:login][:password])

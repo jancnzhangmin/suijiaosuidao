@@ -30,6 +30,7 @@ class SendsController < ApplicationController
   end
 
   def update
+    params.permit!
     if @send.update(params[:send])
       render @send
     else

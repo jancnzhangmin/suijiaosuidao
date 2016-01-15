@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    params.permit!
     if @product.update(params[:product])
       render @product
     else

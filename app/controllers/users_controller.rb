@@ -30,8 +30,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    params.permit!
     if @user.update(params[:user])
-      render @user
+      redirect_to @user
     else
       render :edit
     end

@@ -3,6 +3,8 @@ class IndentsController < ApplicationController
 
   def index
     @indents =Indent.all
+    @users = User.all
+    @sends = Send.all
   end
 
   def show

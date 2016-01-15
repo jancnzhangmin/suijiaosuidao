@@ -23,3 +23,34 @@
 
 <%= link_to '添加价格', new_kilometre_path %>
 
+
+
+
+
+
+
+<%=render 'head' %>
+<div class="container fluid-height clearfix">
+  <h2 class="heading" style="margin-top: 15px;">路程价格</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>价格</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <% @kilometres .each do |kilometre| %>
+          <tr>
+            <td width="30px"><i class="icon-sitemap"></i></td>
+            <td><%= kilometre.price %></td>
+            <td width="100px" align="center"><%= link_to "", edit_kilometre_path(kilometre),  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+              <%= link_to '', kilometre, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
+    <%= link_to ' 新建价格', new_kilometre_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
+  </div>
+</div>

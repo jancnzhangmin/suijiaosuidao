@@ -1,5 +1,4 @@
 
-
 <!-- Navigation -->
 <div class="navbar navbar-fixed-top scroll-hide" xmlns="http://www.w3.org/1999/html">
   <div class="container-fluid top-bar">
@@ -11,7 +10,7 @@
         <li class="dropdown user hidden-xs" ><a data-toggle="dropdown" class="dropdown-toggle" href="#">
           <%= session[:admin_name]%><b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="/logins/new" data-no-turbolink>
+            <li><a href="/logins" data-no-turbolink>
               <i class="icon-signout">退出</i></a>
             </li>
           </ul>
@@ -57,17 +56,20 @@
             <li>
               <%= link_to "订单管理", indents_path %>
             </li>
-
+            <li>
+              <%= link_to "订单明细", orderdetails_path %>
+            </li>
           </ul>
         </li>
         <li><a href="/units">
           <span aria-hidden="true" class="icon-cog"></span>单位</a>
         </li>
-        <li><a href="/couriers">
+        <li><a href="/sends">
           <span aria-hidden="true" class="icon-female"></span>配送员</a>
         </li>
-
-
+        <li><a href="/kilometres">
+          <span aria-hidden="true" class="icon-user"></span>公里/价格</a>
+        </li>
 
 
       </ul>

@@ -2,7 +2,7 @@ class ClasController < ApplicationController
   before_action :set_cla, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clas = Cla.all
+    @clas = Cla.all.order("id desc")
   end
 
 
@@ -26,6 +26,7 @@ class ClasController < ApplicationController
   end
 
     def update
+      params.permit!
       if @cla.update(params[:cla])
         redirect_to clas_url
       else

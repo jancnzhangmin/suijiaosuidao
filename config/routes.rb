@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   get 'sides/index'
 
+   get 'logins/new'
 
   get 'ctsinits/index'
 
   resources :sides
   resources :advertisements
   resources :admins do
+    delete 'destroy_multiple', on: :collection
     get 'chkrpt', on: :collection
   end
 
@@ -27,7 +29,9 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :sellers
+  resources :sellers do
+    delete 'destroy_multiple', on: :collection
+  end
 
   resources :sends
 

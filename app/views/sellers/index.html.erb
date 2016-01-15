@@ -1,37 +1,46 @@
-<h1>商家列表</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>类别</th>
-    <th>登录名</th>
-    <th>密码</th>
-    <th>商家名称</th>
-    <th>商家地址</th>
-    <th>商家位置</th>
-    <th>商家概况</th>
-    <th>操作</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @sellers.each do |seller| %>
+<%=render 'head' %>
+<div class="container fluid-height clearfix">
+  <h2 class="heading" style="margin-top: 15px;">商家设置</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= seller.cla_id %></td>
-        <td><%= seller.login %></td>
-        <td>********</td>
-        <td><%= seller.name %></td>
-        <td><%= seller.logo %></td>
-        <td><%= seller.address %></td>
-        <td><%= seller.location %></td>
-        <td><%= seller.summary %></td>
-        <td><%= link_to 'Edit', edit_seller_path(seller) %></td>
-        <td><%= link_to 'Destroy', seller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th>类别</th>
+        <th>登录名</th>
+        <th>密码</th>
+        <th>商家名称</th>
+        <th>商家LOGO</th>
+        <th>商家地址</th>
+        <th>商家位置</th>
+        <th>商家概况</th>
+        <th>操作</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
-<br>
+      </thead>
+      <% @sellers.each do |seller| %>
+          <tr>
+            <td width="30px"><i class="icon-user"></i></td>
+            <% @cla=@clas.find_by_id(seller.cla_id) rescue nil %>
+            <% if @cla %>
+                <td class="hidden-xs"><%= @cla.claname %></td>
+            <% else %>
+                <td class="hidden-xs">&nbsp;</td>
+            <% end %>
+            <td><%= seller.login %></td>
+            <td>********</td>
+            <td><%= seller.name %></td>
+            <td><%= seller.logo %></td>
+            <td><%= seller.address %></td>
+            <td><%= seller.location %></td>
+            <td><%= seller.summary %></td>
+            <td width="100px" align="center"><%= link_to "", seller,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+              <%= link_to '', seller, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br>
+    <%= link_to ' 商家设置', new_seller_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
+  </div>
+</div>
 
-<%= link_to '添加产品', new_seller_path %>

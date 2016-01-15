@@ -1,0 +1,89 @@
+<script type="text/javascript" language="javascript">
+    function readURL(input,imgid) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.'+imgid)
+                        .attr('src', e.target.result)
+                //.width(300)
+                //.height(200);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function cardtypeselect(){
+        document.getElementById("seller_id").value=document.getElementById("sellerid").value;
+    }
+
+</script>
+
+
+<%= form_for(@seller) do |f|   %>
+    <table class="col-lg-12">
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:90px;text-align: right;padding: 10px;"><%= f.label :商家分类 %></td>
+          <td> <%= f.hidden_field :cla_id,value:1%>
+            <% @clas = Cla.all%>
+            <select id="sideclaid" class="form-control" type="text" onchange="cardtypeselect()">
+              <%= @clas.each do |f| %>
+                  <option value=<%=f.id%>><%=f.claname%></option>
+              <%end%>
+            </select></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :登录名 %></td>
+          <td><%= f.text_field :login, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :密码 %></td>
+          <td><%= f.password_field :password, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :password_confirmation, "确认密码" %></td>
+          <td><%= f.password_field :password_confirmation, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :名称 %></td>
+          <td><%= f.text_field :name, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :LOGO %></td>
+          <td> <%= f.file_field :logo ,:onchange => "readURL(this,'img1')" %>
+            <%if !@seller.logo %>
+                <img style="margin-left: 160px" class="img1" width="200px" height="150px"  src=<%= @seller.logo.url%> /></td>
+            <%else%>
+                <img style="margin-left: 160px" class="img1" width="200px" height="150px"  src=<%=image_path('noimage.png')%> /></td>
+            <%end%>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :商家地址 %></td>
+          <td><%= f.text_field :address, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :商家位置 %></td>
+          <td><%= f.text_field :location, class:"form-control" %></td>
+        </div>
+      </tr>
+      <tr>
+        <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+          <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+        </div>
+      </tr>
+    </table>
+<%end%>

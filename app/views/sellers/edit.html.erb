@@ -1,40 +1,9 @@
-<%= form_for :seller , url: sellers_path do |f| %>
-
-    <h2>新建产品</h2>
-    <div class="field">
-      <%= f.label :登录名 %><br>
-      <%= f.text_field :login %>
+<%=render 'head' %>
+<div class="container fluid-height clearfix">
+  <h2 class="heading" style="margin-top: 15px;">商家信息修改</h2>
+  <div class="widget-container fluid-height clearfix">
+    <div class="col-lg-12">
+      <%= render 'form' %>
     </div>
-    <div class="field">
-      <%= f.label :密码 %><br>
-      <%= f.text_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :确认密码  %><br>
-      <%= f.text_field :password_confirmation %>
-    </div>
-    <div class="field">
-      <%= f.label :名称 %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :logo %><br>
-      <%= f.text_field :logo %>
-    </div>
-    <div class="field">
-      <%= f.label :地址 %><br>
-      <%= f.text_field :address %>
-    </div>
-    <div class="field">
-      <%= f.label :位置 %><br>
-      <%= f.text_field :location %>
-    </div>
-    <div class="field">
-      <%= f.label :概要 %><br>
-      <%= f.text_field :status %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
-<%end%>
+  </div>
+</div>

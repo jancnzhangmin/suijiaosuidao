@@ -3,6 +3,7 @@ class OrderdetailsController < ApplicationController
 
   def index
     @orderdetails =Orderdetail.all
+    @products = Product.all
   end
 
   def show

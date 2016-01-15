@@ -26,6 +26,7 @@ class KilometresController < ApplicationController
   end
 
   def update
+    params.permit!
     if @kilometre.update(params[:kilometre])
       redirect_to kilometres_url
     else

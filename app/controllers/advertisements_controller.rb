@@ -30,6 +30,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def update
+    params.permit!
     if @advertisement.update(params[:advertisement])
       render @advertisement
     else

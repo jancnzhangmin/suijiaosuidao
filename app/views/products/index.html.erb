@@ -9,8 +9,8 @@
       <thead>
       <tr>
         <th></th>
-        <th >商家ID</th>
-        <th>单位ID</th>
+        <th >商家名</th>
+        <th>单位名</th>
         <th>产品名称</th>
         <th>产品价格</th>
         <th>产品图片</th>
@@ -39,10 +39,10 @@
             <% end %>
             <td><%= product.name %></td>
             <td><%= product.price %></td>
-            <td><%= product.avatar.url %></td>
+            <td><%= image_tag product.avatar.url,width:'20%' %></td>
             <td><%= product.status %></td>
             <td><%= product.num %></td>
-            <td width="100px" align="center"><%= link_to "", product,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+            <td width="100px" align="center"><%= link_to "", edit_product_path(product),  class:"icon-pencil usricons", title: "编辑",'data-no-turbolink'=>true %>&nbsp;&nbsp;
               <%= link_to '', product, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
           </tr>
       <% end %>
